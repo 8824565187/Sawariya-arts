@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sawariya Arts</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Sawariya Arts</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Welcome to Sawariya Arts</h2>
+      <p>Handmade crafts and traditional art pieces with vibrant colors and love.</p>
+    </section>
+
+    <section class="highlight">
+      <h3>Featured Items</h3>
+      <div class="grid">
+        <div class="card">
+          <img src="https://via.placeholder.com/150" alt="Craft 1">
+          <p>Colorful Pottery</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/150" alt="Craft 2">
+          <p>Traditional Wall Hanging</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Sawariya Arts. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>
+<section class="contact">
+  <h3>Contact Us</h3>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message" rows="4" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+<div class="card">
+  <img src="https://via.placeholder.com/150" alt="Craft 1">
+  <p>Handmade Diya - ₹100</p>
+  <button>Add to Cart</button>
+</div>
+<script>
+  // Initial cart count
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  updateCartCount();
+
+  // Add event listeners to all buttons
+  document.querySelectorAll(".card button").forEach((button, index) => {
+    button.addEventListener("click", () => {
+      const productName = button.parentElement.querySelector("p").innerText;
+      cart.push(productName);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+      alert(productName + " added to cart!");
+    });
+  });
+
+  function updateCartCount() {
+    const cartCount = cart.length;
+    document.getElementById("cart-count").innerText = `Cart (${cartCount})`;
+  }
+</script>
+<!-- partial -->
+  
+</body>
+</html>
